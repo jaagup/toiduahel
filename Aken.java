@@ -24,7 +24,13 @@ public class Aken extends Application{
        stage.setScene(new Scene(juur));
        stage.show();
        salvestusnupp.setOnAction((event) -> salvesta());       
-       lugemisnupp.setOnAction((event) -> loe());       
+       lugemisnupp.setOnAction((event) -> loe());
+       nupp1.setOnAction((event) -> arvutaPaev());       
+    }
+    void arvutaPaev(){
+       tekstistMuutujatesse();
+       if(janeseid>=hunte){janeseid-=hunte;}
+       muutujatestTekstivaljadesse();       
     }
     void tekstistMuutujatesse(){
        hunte=Integer.parseInt(tfHunte.getText());
