@@ -5,6 +5,8 @@ import javafx.scene.layout.*;
 import javafx.stage.*;
 import java.io.*;
 import java.util.*;
+import javafx.animation.*;
+import javafx.util.Duration;
 public class Aken extends Application{
     int hunte=5;
     int janeseid=30;
@@ -13,6 +15,7 @@ public class Aken extends Application{
     Button nupp1=new Button("1 päev");
     Button salvestusnupp=new Button("Salvesta");
     Button lugemisnupp=new Button("Loe");
+    Timeline ajatiksuja=new Timeline(new KeyFrame(Duration.seconds(2), (event)->arvutaPaev()));
     public void start(Stage stage){
        VBox vb=new VBox();
        HBox hb=new HBox();
@@ -25,8 +28,11 @@ public class Aken extends Application{
        stage.show();
        salvestusnupp.setOnAction((event) -> salvesta());       
        lugemisnupp.setOnAction((event) -> loe());
-       nupp1.setOnAction((event) -> arvutaPaev());       
+       nupp1.setOnAction((event) -> arvutaPaev());    
+       ajatiksuja.setCycleCount(Timeline.INDEFINITE);
+       ajatiksuja.play();       
     }
+    
     void arvutaPaev(){
        tekstistMuutujatesse();
        if(janeseid>=hunte){janeseid-=hunte;}
