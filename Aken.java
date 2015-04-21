@@ -23,10 +23,20 @@ public class Aken extends Application{
        Group juur=new Group(vb);
        stage.setScene(new Scene(juur));
        stage.show();
-       salvestusnupp.setOnAction((event) -> salvesta());
+       salvestusnupp.setOnAction((event) -> salvesta());       
+       lugemisnupp.setOnAction((event) -> loe());       
+    }
+    void tekstistMuutujatesse(){
+       hunte=Integer.parseInt(tfHunte.getText());
+       janeseid=Integer.parseInt(tfJaneseid.getText());
+    }
+    void muutujatestTekstivaljadesse(){
+       tfHunte.setText(String.valueOf(hunte));
+       tfJaneseid.setText(String.valueOf(janeseid));
     }
     void salvesta(){
        try{
+         tekstistMuutujatesse();
          Properties prop=new Properties();
          prop.put("hunte", String.valueOf(hunte));
          prop.put("janeseid", String.valueOf(janeseid));
@@ -36,5 +46,14 @@ public class Aken extends Application{
        }catch(IOException ex){
          ex.printStackTrace();
        }
+    }
+    void loe(){
+       try{
+         Properties prop=new Properties();
+         prop.load(new FileInputStream("andmed.txt"));
+         hunte=Integer.parseInt(prop.getProperty("hunte"));
+         janeseid=Integer.parseInt(prop.getProperty("janeseid"));
+         muutujatestTekstivaljadesse();
+       }catch(IOException ex){ex.printStackTrace();}
     }
 }
