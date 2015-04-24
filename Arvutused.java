@@ -11,4 +11,5 @@ public class Arvutused{
    public void lisaJanes(){
       andmed.uuedAndmed(andmed.huntideArv(), andmed.janesteArv()+1);
    }
+
 }
