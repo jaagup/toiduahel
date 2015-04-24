@@ -10,14 +10,17 @@ public class Vaade extends Application implements AndmeteKuular{
     TextField tfJaneseid=new TextField();
     Button nupp1=new Button("1 päev");
     Button nupp2=new Button("Juhuslik");
+    Button nupp3=new Button("+Jänes");
+    
     public void start(Stage stage){
        HBox hb=new HBox();
-       hb.getChildren().addAll(tfHunte, tfJaneseid, nupp1, nupp2);
+       hb.getChildren().addAll(tfHunte, tfJaneseid, nupp1, nupp2, nupp3);
        Group juur=new Group(hb);
        stage.setScene(new Scene(juur));
        stage.show();
        nupp1.setOnAction((event) -> arvutused.arvutaPaev());  
        nupp2.setOnAction((event) -> arvutused.looJuhuslikudAndmed());  
+       nupp3.setOnAction((event) -> arvutused.lisaJanes());  
        andmed.lisaAndmeteKuular(this);
        loeAndmed();       
     }

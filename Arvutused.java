@@ -8,4 +8,7 @@ public class Arvutused{
    public void looJuhuslikudAndmed(){
       andmed.uuedAndmed((int)(10*Math.random()), (int)(100*Math.random()));
    }
+   public void lisaJanes(){
+      andmed.uuedAndmed(andmed.huntideArv(), andmed.janesteArv()+1);
+   }
 }
