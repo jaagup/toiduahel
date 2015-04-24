@@ -3,11 +3,16 @@ import java.util.*;
 public class Andmed{
    private int hunte;
    private int janeseid;
+   private ArrayList<AndmeteKuular> andmeteKuularid=new ArrayList<AndmeteKuular>();
+   public Andmed(){loe();}
    public void uuedAndmed(int hunte, int janeseid){
       this.hunte=hunte; this.janeseid=janeseid;
       salvesta();
+      for(AndmeteKuular ak: andmeteKuularid){ak.andmedMuutusid();}
    }
-   public Andmed(){loe();}
+   public void lisaAndmeteKuular(AndmeteKuular ak){
+      andmeteKuularid.add(ak);
+   }
    public int huntideArv(){return hunte;}
    public int janesteArv(){return janeseid;}
    
